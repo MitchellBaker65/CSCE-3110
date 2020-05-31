@@ -1,0 +1,157 @@
+Script started on 2020-05-27 10:18:24-0500
+]0;mdb0355@cse03: ~/CSCE_3110/Project01mdb0355@cse03:~/CSCE_3110/Project01$ cat may18A.cppls[Kcd CSCE_3110[Kp may1* /home/mdb0355/CSCE_3110[4P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C~/home/mdb0355/CSCE_3110[6P/mdb0355/CSCE_3110~/home/mdb0355/CSCE_3110[1P/home/mdb0355/CSCE_3110[4@may1[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cd[K CSCE_3110ls[Kcat may18A.cpp[Kg++ project01.cpp
+[01m[Kg++:[m[K [01;31m[Kerror: [m[Kproject01.cpp: No such file or directory
+[01m[Kg++:[m[K [01;31m[Kfatal error: [m[Kno input files
+compilation terminated.
+]0;mdb0355@cse03: ~/CSCE_3110/Project01mdb0355@cse03:~/CSCE_3110/Project01$ ls
+[0m[01;32ma.out[0m  project1.cpp  typescript
+]0;mdb0355@cse03: ~/CSCE_3110/Project01mdb0355@cse03:~/CSCE_3110/Project01$ lsg++ project01.cpp[1P1.cpp
+]0;mdb0355@cse03: ~/CSCE_3110/Project01mdb0355@cse03:~/CSCE_3110/Project01$ ./a.out
+Enter first positive integer: 31
+Enter second positive integer: 89
+Multiplication using only ADDITION:
+Product: 2759
+Pass 1: 0 seconds 2410 nanoseconds
+Product: 2759
+Pass 2: 0 seconds 1378 nanoseconds
+Product: 2759
+Pass 3: 0 seconds 1274 nanoseconds
+Product: 2759
+Pass 4: 0 seconds 1272 nanoseconds
+Product: 2759
+Pass 5: 0 seconds 1257 nanoseconds
+Product: 2759
+Pass 6: 0 seconds 1246 nanoseconds
+Product: 2759
+Pass 7: 0 seconds 1254 nanoseconds
+Product: 2759
+Pass 8: 0 seconds 1245 nanoseconds
+Product: 2759
+Pass 9: 0 seconds 1243 nanoseconds
+Product: 2759
+Pass 10: 0 seconds 1250 nanoseconds
+Average: 0 seconds 1382.9 nanoseconds
+Multiplication using only ADDITION and bit SHIFTS:
+Product: 2759
+Pass 1: 0 seconds 1419 nanoseconds
+Product: 2759
+Pass 2: 0 seconds 1231 nanoseconds
+Product: 2759
+Pass 3: 0 seconds 1234 nanoseconds
+Product: 2759
+Pass 4: 0 seconds 1232 nanoseconds
+Product: 2759
+Pass 5: 0 seconds 1235 nanoseconds
+Product: 2759
+Pass 6: 0 seconds 1236 nanoseconds
+Product: 2759
+Pass 7: 0 seconds 1515 nanoseconds
+Product: 2759
+Pass 8: 0 seconds 1219 nanoseconds
+Product: 2759
+Pass 9: 0 seconds 1251 nanoseconds
+Product: 2759
+Pass 10: 0 seconds 1219 nanoseconds
+Average: 0 seconds 1279.1 nanoseconds
+]0;mdb0355@cse03: ~/CSCE_3110/Project01mdb0355@cse03:~/CSCE_3110/Project01$ ./a.out
+Enter first positive integer: 134
+Enter second positive integer: 8531
+Multiplication using only ADDITION:
+Product: 1143154
+Pass 1: 0 seconds 2746 nanoseconds
+Product: 1143154
+Pass 2: 0 seconds 1632 nanoseconds
+Product: 1143154
+Pass 3: 0 seconds 1545 nanoseconds
+Product: 1143154
+Pass 4: 0 seconds 1576 nanoseconds
+Product: 1143154
+Pass 5: 0 seconds 1614 nanoseconds
+Product: 1143154
+Pass 6: 0 seconds 1556 nanoseconds
+Product: 1143154
+Pass 7: 0 seconds 1578 nanoseconds
+Product: 1143154
+Pass 8: 0 seconds 1532 nanoseconds
+Product: 1143154
+Pass 9: 0 seconds 2371 nanoseconds
+Product: 1143154
+Pass 10: 0 seconds 1532 nanoseconds
+Average: 0 seconds 1768.2 nanoseconds
+Multiplication using only ADDITION and bit SHIFTS:
+Product: 1143154
+Pass 1: 0 seconds 1449 nanoseconds
+Product: 1143154
+Pass 2: 0 seconds 1227 nanoseconds
+Product: 1143154
+Pass 3: 0 seconds 1166 nanoseconds
+Product: 1143154
+Pass 4: 0 seconds 1198 nanoseconds
+Product: 1143154
+Pass 5: 0 seconds 1174 nanoseconds
+Product: 1143154
+Pass 6: 0 seconds 1189 nanoseconds
+Product: 1143154
+Pass 7: 0 seconds 1212 nanoseconds
+Product: 1143154
+Pass 8: 0 seconds 1183 nanoseconds
+Product: 1143154
+Pass 9: 0 seconds 1202 nanoseconds
+Product: 1143154
+Pass 10: 0 seconds 1163 nanoseconds
+Average: 0 seconds 1216.3 nanoseconds
+]0;mdb0355@cse03: ~/CSCE_3110/Project01mdb0355@cse03:~/CSCE_3110/Project01$ 0
+0: command not found
+]0;mdb0355@cse03: ~/CSCE_3110/Project01mdb0355@cse03:~/CSCE_3110/Project01$ 0./a.out
+Enter first positive integer: 0
+Enter first positive integer: 38
+Enter second positive integer: -456
+Enter second positive integer: 456
+Multiplication using only ADDITION:
+Product: 17328
+Pass 1: 0 seconds 2089 nanoseconds
+Product: 17328
+Pass 2: 0 seconds 1382 nanoseconds
+Product: 17328
+Pass 3: 0 seconds 1359 nanoseconds
+Product: 17328
+Pass 4: 0 seconds 1333 nanoseconds
+Product: 17328
+Pass 5: 0 seconds 1289 nanoseconds
+Product: 17328
+Pass 6: 0 seconds 1326 nanoseconds
+Product: 17328
+Pass 7: 0 seconds 1303 nanoseconds
+Product: 17328
+Pass 8: 0 seconds 1287 nanoseconds
+Product: 17328
+Pass 9: 0 seconds 1304 nanoseconds
+Product: 17328
+Pass 10: 0 seconds 1304 nanoseconds
+Average: 0 seconds 1397.6 nanoseconds
+Multiplication using only ADDITION and bit SHIFTS:
+Product: 17328
+Pass 1: 0 seconds 1439 nanoseconds
+Product: 17328
+Pass 2: 0 seconds 1319 nanoseconds
+Product: 17328
+Pass 3: 0 seconds 1212 nanoseconds
+Product: 17328
+Pass 4: 0 seconds 1275 nanoseconds
+Product: 17328
+Pass 5: 0 seconds 1257 nanoseconds
+Product: 17328
+Pass 6: 0 seconds 1262 nanoseconds
+Product: 17328
+Pass 7: 0 seconds 1257 nanoseconds
+Product: 17328
+Pass 8: 0 seconds 1256 nanoseconds
+Product: 17328
+Pass 9: 0 seconds 1304 nanoseconds
+Product: 17328
+Pass 10: 0 seconds 1252 nanoseconds
+Average: 0 seconds 1283.3 nanoseconds
+]0;mdb0355@cse03: ~/CSCE_3110/Project01mdb0355@cse03:~/CSCE_3110/Project01$ exit
+exit
+
+Script done on 2020-05-27 10:20:18-0500
