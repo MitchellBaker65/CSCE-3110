@@ -18,11 +18,11 @@ int main(int argc, char **argv){
 
     std::string userInputString;                    // holds the infix expression give by the user 
     char* userInputPointer;                         // pointer to hold the user input for breaking the string up
-    std::vector<std::string> userInputVectorOfCharacters;  // holds the user input broken up into characters
-    std::stack<std::string> stackOfOperators;              // stack to hold the operators during transfer 
+    std::vector<char> userInputVectorOfCharacters;  // holds the user input broken up into characters
+    std::stack<char> stackOfOperators;              // stack to hold the operators during transfer 
                                                     // from infix to posfix and to evaluate the expression
-    std::queue<std::string> queueOfOperandsAndOperators;   // queue to hold the posfix equivalent expression
-    std::queue<std::string> queueOfOperandsAndOperatorsForCalculation; // holds the copy of the postfix so an evaluation can be calculated.
+    std::queue<char> queueOfOperandsAndOperators;   // queue to hold the posfix equivalent expression
+    std::queue<char> queueOfOperandsAndOperatorsForCalculation; // holds the copy of the postfix so an evaluation can be calculated.
     std::stack<float> stackOfPostfixEvaluation;     // stack to evaluate the generated postfix expression 
     int userInputStringLength;                      // holds the length of the string of the user input
     float tempPostfixNumber;                        // holds the value of the convertion from char to float
@@ -48,8 +48,7 @@ int main(int argc, char **argv){
     // iterates through the c string, breaking up each piece seperated by a " " and
     // stores it in the character vector
     while(userInputPointer != NULL){
-        std::string temp(userInputPointer);
-        userInputVectorOfCharacters.push_back(temp);
+        userInputVectorOfCharacters.push_back(*userInputPointer);
         if(*userInputPointer == '(' || *userInputPointer == ')') numOfParenthesizes++;
         userInputPointer = strtok(NULL, " ");
     }
@@ -74,42 +73,42 @@ int main(int argc, char **argv){
         2. it is an operand, then:
             push the operand onto the queue
     */
-    for(std::string c: userInputVectorOfCharacters){
+    for(auto c: userInputVectorOfCharacters){
         bool operatorNotPushed = true;
         do {
-            if(c.length() == 1 && (c == "+" || c == "-" || c == "/" || c == "*" || c == "(" || c == ")"|| c == "%"|| c == "^")) {
+            if(c == '+' || c == '-' || c == '/' || c == '*' || c == '(' || c == ')'|| c == '%'|| c == '^')
                 if(stackOfOperators.empty()) {
                     stackOfOperators.push(c);
                     operatorNotPushed = false;
                 }
-                else if(c == "^"){
+                else if(c == '^'){
                     stackOfOperators.push(c);
                     operatorNotPushed = false;
                 }
-                else if((c == "/" || c == "*" || c == "%")  && (stackOfOperators.top() == "-" || stackOfOperators.top() == "+")) {
+                else if((c == '/' || c == '*' || c == '%')  && (stackOfOperators.top() == '-' || stackOfOperators.top() == '+')) {
                     stackOfOperators.push(c);
                     operatorNotPushed = false;
                 }
-                else if (stackOfOperators.top() == "(" || c == "(" ){
+                else if (stackOfOperators.top() == '(' || c == '(' ){
                     stackOfOperators.push(c);
                     operatorNotPushed = false;
                 }
-                else if(c == ")"){  
-                    while(stackOfOperators.top() != "("){
-                        std::string temp = stackOfOperators.top();
+                else if(c == ')'){  
+                    while(stackOfOperators.top() != '('){
+                        char temp = stackOfOperators.top();
                         stackOfOperators.pop();
                         queueOfOperandsAndOperators.push(temp);
                     }
                     stackOfOperators.pop();
                     operatorNotPushed = false;
+                    c++;
                 }
                 else {
-                    std::string temp = stackOfOperators.top();
+                    char temp = stackOfOperators.top();
                     stackOfOperators.pop();
                     queueOfOperandsAndOperators.push(temp);
                     operatorNotPushed = true;
                 }
-            }
             else {
                 queueOfOperandsAndOperators.push(c);
                 operatorNotPushed = false;
@@ -119,7 +118,7 @@ int main(int argc, char **argv){
 
     // removes the last operand that is leftover on the stack 
     while(!stackOfOperators.empty()){
-        std::string temp = stackOfOperators.top();
+        char temp = stackOfOperators.top();
         queueOfOperandsAndOperators.push(temp);
         stackOfOperators.pop();
     }
@@ -128,7 +127,7 @@ int main(int argc, char **argv){
     // so the expression can be evaluated 
     std::cout << "The resulting postfix expression: ";
     while(!queueOfOperandsAndOperators.empty()) {
-        std::string temp = queueOfOperandsAndOperators.front();
+        char temp = queueOfOperandsAndOperators.front();
         std::cout << queueOfOperandsAndOperators.front();
         queueOfOperandsAndOperatorsForCalculation.push(temp);
         queueOfOperandsAndOperators.pop();
@@ -143,12 +142,12 @@ int main(int argc, char **argv){
             is at. 
     */
     while(!queueOfOperandsAndOperatorsForCalculation.empty()) {
-        std::string temp = queueOfOperandsAndOperatorsForCalculation.front();
+        char temp = queueOfOperandsAndOperatorsForCalculation.front();
         queueOfOperandsAndOperatorsForCalculation.pop();
         
-        tempPostfixNumber = std::atof(temp.c_str());
+        tempPostfixNumber = (float)(temp -'0');
 
-        if(temp != "^" && temp != "%" && temp != "/" && temp != "*" && temp != "-" && temp != "+"){
+        if(temp != '^' && temp != '%' && temp != '/' && temp != '*' && temp != '-' && temp != '+'){
             stackOfPostfixEvaluation.push(tempPostfixNumber);
         }
         else{
@@ -156,22 +155,22 @@ int main(int argc, char **argv){
                 stackOfPostfixEvaluation.pop();
                 firstNumber = stackOfPostfixEvaluation.top();
                 stackOfPostfixEvaluation.pop();
-                if(temp == "^") {
+                if(temp == '^') {
                     stackOfPostfixEvaluation.push(pow(firstNumber, secondNumber));
                 }
-                if(temp == "%") {
+                if(temp == '%') {
                     stackOfPostfixEvaluation.push(int(firstNumber) % int(secondNumber));
                 }
-                if(temp == "/") {
+                if(temp == '/') {
                     stackOfPostfixEvaluation.push(firstNumber / secondNumber);
                 }
-                if(temp == "*") {
+                if(temp == '*') {
                     stackOfPostfixEvaluation.push(firstNumber * secondNumber);
                 }
-                if(temp == "-") {
+                if(temp == '-') {
                     stackOfPostfixEvaluation.push(firstNumber - secondNumber);
                 }
-                if(temp == "+") {
+                if(temp == '+') {
                     stackOfPostfixEvaluation.push(firstNumber + secondNumber);
                 }
         }
